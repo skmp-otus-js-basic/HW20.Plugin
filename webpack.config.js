@@ -1,0 +1,84 @@
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+const mode = process.env.NODE_ENV;
+
+module.exports = {
+  entry: {
+    index: [path.resolve(__dirname, "src", "js", "index.js")],
+    feedback: [path.resolve(__dirname, "src", "js", "feedback.js")],
+    entries: [path.resolve(__dirname, "src", "js", "entries.js")],
+    entry: [path.resolve(__dirname, "src", "js", "entry.js")],
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    // filename: "bundle.js",
+    filename: "[name].js",
+    clean: true,
+    environment: {
+      arrowFunction: false,
+    },
+  },
+  devtool: mode === "production" ? "source-map" : "eval-source-map",
+  plugins: [
+    new HtmlWebpackPlugin({
+      // template: `${__dirname}/src/html/index.html`,
+      template: path.resolve(__dirname, "src", "html", "index.html"),
+      filename: "index.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "html", "feedback.html"),
+      filename: "feedback.html",
+      chunks: ["feedback"],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "html", "entries.html"),
+      filename: "entries.html",
+      chunks: ["entries"],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "html", "entry.html"),
+      filename: "entry.html",
+      chunks: ["entry"],
+    }),
+    new MiniCssExtractPlugin(),
+  ],
+  optimization: {
+    minimizer: [`...`, new CssMinimizerPlugin()],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        //   test: /\.css$/i,
+        test: /\.(s*)css$/, // match any .scss or .css file,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[hash][ext]",
+          // filename: "images/[name][ext]",
+        },
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+    ],
+  },
+  devServer: {
+    compress: true,
+    port: 9000,
+  },
+};
