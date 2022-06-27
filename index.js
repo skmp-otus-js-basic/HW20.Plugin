@@ -1,0 +1,2 @@
+!function(){"use strict";document.querySelector("#newsletter").addEventListener("submit",(function(t){t.preventDefault();var e,n=document.getElementById("signup");(function(t,e){if(null===e||0===e.trim().length){var n,u,r=document.getElementById(t);return n="newsletter_input_empty",u="newsletter_input",r.setAttribute("class",n),setTimeout((function(){return r.setAttribute("class",u)}),300),!1}return!0})("signup",n.value)&&(n.value="",e="Form 'Home' has submitted",console.log(e))}))}();
+//# sourceMappingURL=index.js.map
