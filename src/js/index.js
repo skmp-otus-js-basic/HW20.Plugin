@@ -14,5 +14,15 @@ form.addEventListener("submit", (e) => {
   show("Form 'Home' has submitted");
 });
 
+const moreButtons = document.querySelectorAll("a.more img");
+moreButtons.forEach((moreButton) => {
+  moreButton.addEventListener("mouseover", (e) =>
+    e.target.setAttribute("src", "images/more_hover.gif")
+  );
+  moreButton.addEventListener("mouseout", (e) =>
+    e.target.setAttribute("src", "images/more.gif")
+  );
+});
+
 const sliderNode = document.querySelector("#slider");
 setSlider(sliderNode);

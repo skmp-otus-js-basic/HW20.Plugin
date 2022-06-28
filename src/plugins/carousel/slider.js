@@ -22,24 +22,24 @@ const moveSlide = async (slide, liItem) => {
 };
 
 export default function setSlider(element) {
-  element.classList.add("middle_banner");
+  // element.classList.add("middle_banner");
 
   // begin divSlider
   const divSlider = document.createElement("div");
-  divSlider.className = "featured_slider";
+  divSlider.className = "featured-slider";
 
   // begin divBorder
   const divBorder = document.createElement("div");
-  divBorder.setAttribute("id", "featured_border");
+  divBorder.setAttribute("id", "featured-border");
   divBorder.setAttribute("style", "display: block;");
 
   // begin divWrapper
   const divWrapper = document.createElement("div");
-  divWrapper.setAttribute("id", "featured_wrapper");
+  divWrapper.setAttribute("id", "featured-wrapper");
 
   // begin ulImages
   const ulImages = document.createElement("ul");
-  ulImages.setAttribute("id", "featured_images");
+  ulImages.setAttribute("id", "featured-images");
   ulImages.setAttribute("style", "width: 3860px; left: 0px;");
   // eslint-disable-next-line no-plusplus
   for (let i = 1; i <= 4; i++) {
@@ -60,7 +60,7 @@ export default function setSlider(element) {
 
   // begin ulButtons
   const ulButtons = document.createElement("ul");
-  ulButtons.setAttribute("id", "featured_buttons");
+  ulButtons.setAttribute("id", "featured-buttons");
   ulButtons.className = "clear_fix";
   // eslint-disable-next-line no-plusplus
   for (let i = 1; i <= 4; i++) {
@@ -74,7 +74,7 @@ export default function setSlider(element) {
       for (let n = 0; n < items.length; n++) {
         items[n].className = "";
       }
-      const slide = document.getElementById("featured_images");
+      const slide = document.getElementById("featured-images");
       moveSlide(slide, item);
       item.className = "clicked";
     });

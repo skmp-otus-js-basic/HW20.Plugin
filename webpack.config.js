@@ -47,10 +47,13 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new CopyPlugin({
-      // Для картинок плагина
       patterns: [
         {
           from: path.resolve(__dirname, "src/plugins/carousel/images"),
+          to: path.resolve(__dirname, "dist/images"),
+        },
+        {
+          from: path.resolve(__dirname, "src/html/images"),
           to: path.resolve(__dirname, "dist/images"),
         },
       ],
@@ -77,8 +80,8 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
-          filename: "images/[hash][ext]",
-          // filename: "images/[name][ext]",
+          // filename: "images/[hash][ext]",
+          filename: "images/[name][ext]",
         },
       },
       {

@@ -5,16 +5,16 @@ export default function check(elementId, data) {
     let workClass;
     switch (elementId) {
       case "name":
-        emptyClass = "main_input_empty";
-        workClass = "main_input";
+        emptyClass = "main-input-empty";
+        workClass = "main-input";
         break;
       case "message":
-        emptyClass = "main_textarea_empty";
-        workClass = "main_textarea";
+        emptyClass = "main-textarea-empty";
+        workClass = "main-textarea";
         break;
       case "signup":
-        emptyClass = "newsletter_input_empty";
-        workClass = "newsletter_input";
+        emptyClass = "newsletter-input-empty";
+        workClass = "newsletter-input";
         break;
       default:
         // eslint-disable-next-line no-alert
