@@ -15,7 +15,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    // filename: "bundle.js",
     filename: "[name].js",
     clean: true,
     environment: {
@@ -25,7 +24,6 @@ module.exports = {
   devtool: mode === "production" ? "source-map" : "eval-source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      // template: `${__dirname}/src/html/index.html`,
       template: path.resolve(__dirname, "src", "html", "index.html"),
       filename: "index.html",
       chunks: ["index"],
@@ -72,7 +70,6 @@ module.exports = {
         },
       },
       {
-        //   test: /\.css$/i,
         test: /\.(s*)css$/, // match any .scss or .css file,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
@@ -80,7 +77,6 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
-          // filename: "images/[hash][ext]",
           filename: "images/[name][ext]",
         },
       },

@@ -1,5 +1,8 @@
 $button: #b52025;
 $hover: #22496a;
+$header-height: 90px;
+$footer-height: 65px;
+$content-height: calc(100vh - $header-height - $footer-height - 100px);
 @mixin zero-indent {
   margin: 0;
   padding: 0;
@@ -51,7 +54,7 @@ h2 {
 #header {
   width: 960px;
   margin: auto;
-  height: 90px;
+  height: $header-height;
 }
 
 #logo {
@@ -72,6 +75,7 @@ h2 {
   margin: auto;
   padding: 20px 0;
   background: url("/src/html/images/center_bg_pages.gif") no-repeat center top;
+  min-height: $content-height;
 }
 
 .home-section-left {
@@ -342,7 +346,7 @@ button.submit {
   width: 960px;
   margin: auto;
   background: url("/src/html/images/footer_bg.jpg") no-repeat center;
-  height: 65px;
+  height: $footer-height;
 }
 
 .comment {
