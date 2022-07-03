@@ -12,5 +12,8 @@ jobs:
       - name: Install Packages
         run: npm ci
 
-      - name: Lint check
+      - name: Lint checkValue
         run: npm run lint
+
+      - name: Run tests
+        run: npm run test

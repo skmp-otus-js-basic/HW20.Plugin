@@ -1,4 +1,4 @@
-function readList() {
+export function readList() {
   const items = JSON.parse(localStorage.getItem("items"));
   return items || [];
 }
@@ -28,7 +28,7 @@ function addArticle(comments, record) {
   comments.appendChild(article);
 }
 
-function addTemplate(comments) {
+export function addTemplate(comments) {
   let record = {
     name: "Sergey Potysev",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at aut cupiditate ea et facilis, laboriosam nisi quas, quibusdam rerum sint ut vel, voluptatum! Animi fuga iure nesciunt tempore vel.",

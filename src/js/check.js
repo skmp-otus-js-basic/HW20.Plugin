@@ -1,20 +1,20 @@
-export default function check(elementId, data) {
-  if (data === null || data.trim().length === 0) {
-    const element = document.getElementById(elementId);
+export default function checkValue(element) {
+  if (element.value === null || element.value.trim().length === 0) {
+    const elementId = element.getAttribute("id");
     let emptyClass;
     let workClass;
     switch (elementId) {
       case "name":
-        emptyClass = "main_input_empty";
-        workClass = "main_input";
+        emptyClass = "main-input-empty";
+        workClass = "main-input";
         break;
       case "message":
-        emptyClass = "main_textarea_empty";
-        workClass = "main_textarea";
+        emptyClass = "main-textarea-empty";
+        workClass = "main-textarea";
         break;
       case "signup":
-        emptyClass = "newsletter_input_empty";
-        workClass = "newsletter_input";
+        emptyClass = "newsletter-input-empty";
+        workClass = "newsletter-input";
         break;
       default:
         // eslint-disable-next-line no-alert
