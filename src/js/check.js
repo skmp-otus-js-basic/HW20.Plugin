@@ -1,6 +1,6 @@
-export default function check(elementId, data) {
-  if (data === null || data.trim().length === 0) {
-    const element = document.getElementById(elementId);
+export default function checkValue(element) {
+  if (element.value === null || element.value.trim().length === 0) {
+    const elementId = element.getAttribute("id");
     let emptyClass;
     let workClass;
     switch (elementId) {
